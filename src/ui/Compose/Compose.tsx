@@ -150,6 +150,7 @@ export const Compose: FC<ComposeProps> = ({ descriptionProps, instructionId, isC
     },
     onTranslate: async (data) => {
       console.log('Translating...')
+      console.log(data)
       await generate({
         action: 'Translate',
         params: data,
