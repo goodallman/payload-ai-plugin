@@ -8,6 +8,8 @@ import { PLUGIN_INSTRUCTIONS_TABLE } from './defaults.js'
 import { getGenerationModels } from './utilities/getGenerationModels.js'
 
 export const init = async (payload: Payload, fieldSchemaPaths, pluginConfig: PluginConfig) => {
+  console.log("Hello!")
+
   if (pluginConfig.debugging) {
     payload.logger.info(`— AI Plugin: Initializing...`)
   }
