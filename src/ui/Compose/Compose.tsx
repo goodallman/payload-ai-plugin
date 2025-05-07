@@ -150,17 +150,20 @@ export const Compose: FC<ComposeProps> = ({ descriptionProps, instructionId, isC
     },
     onTranslate: async (data) => {
       console.log('Translating...')
-      console.log(data)
+      // Ensure data is an object and add the current field value for translation
+      const params = (typeof data === 'object' && data !== null)
+        ? { ...data, text: value }
+        : { text: value }
       await generate({
         action: 'Translate',
-        params: data,
+        params,
       })
     },
   },{
     isConfigAllowed
   })
 
-  const { setValue } = useField<string>({
+  const { setValue, value } = useField<string>({
     path: pathFromContext,
   })
 
