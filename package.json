@@ -1,6 +1,6 @@
 {
   "name": "@ai-stack/payloadcms",
-  "version": "internal-0.0.1",
+  "version": "0.0.1-internal",
   "private": false,
   "bugs": "https://github.com/ashbuilds/payload-ai/issues",
   "repository": "https://github.com/ashbuilds/payload-ai",
