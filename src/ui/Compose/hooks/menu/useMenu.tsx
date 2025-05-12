@@ -4,6 +4,7 @@ import { useField } from '@payloadcms/ui'
 import React, { useEffect, useMemo, useState } from 'react'
 
 import { ActionMenuItems, UseMenuEvents, UseMenuOptions } from '../../../../types.js'
+import { translateToCzech } from '../../../../utilities/translateToCzech.js'
 
 import { useFieldProps } from '../../../../providers/FieldProvider/useFieldProps.js'
 import { Compose, Proofread, Rephrase } from './items.js'
@@ -67,9 +68,9 @@ export const useMenu = (menuEvents: UseMenuEvents, options: UseMenuOptions) => {
               stop()
             }
           }}
-          title={isLoading ? 'Click to stop' : activeItem.name}
+          title={translateToCzech(isLoading ? 'Click to stop' : activeItem.name)}
         >
-          {isLoading && activeItem.loadingText}
+          {isLoading && translateToCzech(activeItem.loadingText)}
         </ActiveComponent>
       )
     }
@@ -102,7 +103,7 @@ export const useMenu = (menuEvents: UseMenuEvents, options: UseMenuOptions) => {
                 onClose()
               }}
             >
-              {isLoading && i.loadingText}
+              {isLoading && translateToCzech(i.loadingText)}
             </Action>
           )
         })}
