@@ -25,6 +25,8 @@ export const OpenAIConfig: GenerationConfig = {
         prompt: string,
         options: { locale: string; model: string; system: string },
       ) => {
+        console.log('OpenAI text generation:', prompt)
+
         const streamTextResult = await streamText({
           model: openai(options.model),
           prompt,
