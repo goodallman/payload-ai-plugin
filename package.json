@@ -54,9 +54,7 @@
     "build:types": "tsc --emitDeclarationOnly",
     "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
     "lint": "eslint src",
-    "lint:fix": "eslint --fix src",
-    "prepublishOnly": "pnpm clean && pnpm build",
-    "prepare": "pnpm run build"
+    "lint:fix": "eslint --fix src"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^0.0.38",

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/exports/types.ts"],"sourcesContent":["export type { payloadAiPlugin } from '../plugin.ts'\r\nexport type { PluginConfig, GenerationConfig, GenerationModel } from '../types.ts'"],"names":[],"mappings":"AACA,WAAkF"}
