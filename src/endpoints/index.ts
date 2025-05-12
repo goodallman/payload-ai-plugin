@@ -131,14 +131,11 @@ export const endpoints: (pluginConfig: PluginConfig) => Endpoints = (pluginConfi
 
         if(action === 'Translate'){
           prompts.prompt = `
-            Translate the field of ${fieldName} to ${localeInfo}:\n\n${prompts.prompt},
-            Make sure to output only the translation without any other text or explanation as you are not interacting with user.
-            here is the whole document: ${JSON.stringify(data.doc)}
+            Translate the field of ${fieldName} to ${data.options.actionParams.locale}:\n\n${prompts.prompt}\n\n,
+            Make sure to output only the translation without any other text or explanation as you are not interacting with user.\n\n
+            here is the whole document with the field in it: ${JSON.stringify(data.doc)}
           `
         }
-
-        console.log(action)
-        console.log(prompts.prompt)
 
         // console.log('Running handler with prompts:', prompts)
         return model

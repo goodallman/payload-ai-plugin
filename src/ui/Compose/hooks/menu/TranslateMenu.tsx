@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Item } from './Item.js'
 import { Translate } from './items.js'
 import styles from './menu.module.scss'
+import { translateToCzech } from '../../../../utilities/translateToCzech.js'
 
 export const TranslateMenu = ({ onClick }) => {
   const [show, setShow] = useState(false)
@@ -57,13 +58,15 @@ export const TranslateMenu = ({ onClick }) => {
                     return (
                       l.name.toLowerCase().startsWith(lowerCaseValue) ||
                       l.location.toLowerCase().startsWith(lowerCaseValue) ||
-                      l.tag.toLowerCase().startsWith(lowerCaseValue)
+                      l.tag.toLowerCase().startsWith(lowerCaseValue) ||
+                      translateToCzech(l.name).toLowerCase().startsWith(lowerCaseValue) ||
+                      translateToCzech(l.location).toLowerCase().startsWith(lowerCaseValue)
                     )
                   }),
                 )
               }}
               onFocus={() => setInputFocus(true)}
-              placeholder="Search..."
+              placeholder={translateToCzech('Search...')}
             />
           </Item>
           {languages.map((locale) => {
@@ -74,7 +77,7 @@ export const TranslateMenu = ({ onClick }) => {
                   onClick({ locale: locale.tag })
                 }}
               >
-                <span className={styles.ellipsis}>{`${locale.location} (${locale.tag})`}</span>
+                <span className={styles.ellipsis}>{`${translateToCzech(locale.name)} (${locale.tag})`}</span>
               </Item>
             )
           })}

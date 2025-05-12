@@ -3,6 +3,7 @@ import type { MouseEventHandler} from 'react';
 import React, { useCallback, useEffect, useState } from 'react'
 
 import { useHistory } from './hooks/useHistory.js'
+import { translateToCzech } from '../../utilities/translateToCzech.js'
 
 export const UndoRedoActions = ({ onChange }: { onChange: (val: unknown) => void }) => {
   const { canRedo, canUndo, redo, undo } = useHistory()
@@ -49,7 +50,7 @@ export const UndoRedoActions = ({ onChange }: { onChange: (val: unknown) => void
         style={{ marginBlock: 0 }}
         type="button"
       >
-        Undo
+        {translateToCzech('Undo')}
       </button>
       <button
         className={`btn btn--size-small btn--style-secondary ${!canRedo && 'btn--disabled'}`}
@@ -58,7 +59,7 @@ export const UndoRedoActions = ({ onChange }: { onChange: (val: unknown) => void
         style={{ marginBlock: 0 }}
         type="button"
       >
-        Redo
+        {translateToCzech('Redo')}
       </button>
     </React.Fragment>
   )

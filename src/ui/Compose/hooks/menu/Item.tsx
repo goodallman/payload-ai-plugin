@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 
 import type { BaseItemProps } from '../../../../types.js'
+import { translateToCzech } from '../../../../utilities/translateToCzech.js'
 
 import { ArrowIcon } from '../../../Icons/Icons.js'
 import styles from './menu.module.scss'
@@ -24,7 +25,7 @@ export const createMenuItem = (IconComponent, initialText) =>
   memo(({ children, disabled, hideIcon, isMenu, onClick, ...rest }: BaseItemProps) => (
     <Item disabled={disabled} onClick={onClick} {...rest}>
       {hideIcon || <IconComponent size={18} />}
-      {children || <span className={styles.text}>{initialText}</span>}
+      {children || <span className={styles.text}>{translateToCzech(initialText)}</span>}
       {isMenu && <ArrowIcon size={18} />}
     </Item>
   ))
