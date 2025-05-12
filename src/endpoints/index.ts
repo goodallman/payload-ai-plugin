@@ -129,6 +129,11 @@ export const endpoints: (pluginConfig: PluginConfig) => Endpoints = (pluginConfi
           template: promptTemplate as string,
         })
 
+        prompts.prompt = `
+          ${prompts.prompt}\n\n
+          The locale the user is currently using is ${localeInfo}.\n\n
+        `
+
         if(action === 'Translate'){
           prompts.prompt = `
             Translate the field of ${fieldName} to ${data.options.actionParams.locale}:\n\n${prompts.prompt}\n\n,
