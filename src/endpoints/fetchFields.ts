@@ -12,15 +12,15 @@ export const fetchFields: (access: PluginConfigAccess) => Endpoint = (access) =>
         pagination: false,
       })
 
-      let isConfigAllowed = true // Users allowed to update prompts by default
+      let isConfigAllowed = false
 
-      if (access?.settings) {
+      /* if (access?.settings) {
         try {
           isConfigAllowed = await access.settings({ req })
         } catch (e) {
           req.payload.logger.error('Please check your "access.settings" for request:', req)
         }
-      }
+      } */
 
       const fieldMap = {}
       docs.forEach((doc) => {
